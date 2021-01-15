@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../components/display.dart';
-
+import '../components/keyboard.dart';
 
 class Calculadora extends StatelessWidget {
   @override
@@ -9,8 +9,8 @@ class Calculadora extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Column(
         children: [
-          Display("tela.bat"),
-          Text('Keyboard'),
+          Display("123.456.789.0"),
+          KeyBoard(),
         ],
       ),
     );
