@@ -12,6 +12,7 @@ class KeyBoard extends StatelessWidget {
           ButtomRow([
             Buttom(
               text: 'AC',
+              big: true,
             ),
             Buttom(
               text: '%',
@@ -65,6 +66,7 @@ class KeyBoard extends StatelessWidget {
           ButtomRow([
             Buttom(
               text: '0',
+              big: true,
             ),
             Buttom(
               text: '.',
