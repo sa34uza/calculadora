@@ -9,17 +9,20 @@ class Buttom extends StatelessWidget {
   String text;
   final bool big;
   final Color color;
+  final void Function(String) cb;
 
   Buttom({
     @required this.text,
     this.big = false,
     this.color = DEFAULT,
+    @required this.cb,
   });
 
-   Buttom.operation({
+  Buttom.operation({
     @required this.text,
     this.big = false,
-    this.color = OPERATION,
+    this.color = OPERATION, 
+    @required this.cb,
   });
 
   @override
@@ -36,7 +39,7 @@ class Buttom extends StatelessWidget {
             fontWeight: FontWeight.w500,
           ),
         ),
-        onPressed: () {},
+        onPressed: () => cb(text),
       ),
     );
   }
