@@ -13,11 +13,12 @@ class KeyBoard extends StatelessWidget {
             Buttom(
               text: 'AC',
               big: true,
+              color: Colors.blueGrey[700],
             ),
             Buttom(
               text: '%',
             ),
-            Buttom(
+            Buttom.operation(
               text: '/',
             ),
           ]),
@@ -31,7 +32,7 @@ class KeyBoard extends StatelessWidget {
             Buttom(
               text: '9',
             ),
-            Buttom(
+            Buttom.operation(
               text: 'x',
             ),
           ]),
@@ -45,7 +46,7 @@ class KeyBoard extends StatelessWidget {
             Buttom(
               text: '6',
             ),
-            Buttom(
+            Buttom.operation(
               text: '-',
             ),
           ]),
@@ -59,7 +60,7 @@ class KeyBoard extends StatelessWidget {
             Buttom(
               text: '3',
             ),
-            Buttom(
+            Buttom.operation(
               text: '+',
             ),
           ]),
@@ -71,7 +72,7 @@ class KeyBoard extends StatelessWidget {
             Buttom(
               text: '.',
             ),
-            Buttom(
+            Buttom.operation(
               text: '=',
             ),
           ]),
