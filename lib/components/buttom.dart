@@ -21,7 +21,7 @@ class Buttom extends StatelessWidget {
   Buttom.operation({
     @required this.text,
     this.big = false,
-    this.color = OPERATION, 
+    this.color = OPERATION,
     @required this.cb,
   });
 

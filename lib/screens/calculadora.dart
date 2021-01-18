@@ -15,7 +15,6 @@ class _CalculadoraState extends State<Calculadora> {
     setState(() {
       memory.applyCommand(command);
     });
-    
   }
 
   @override
