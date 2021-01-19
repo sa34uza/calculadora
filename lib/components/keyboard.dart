@@ -46,7 +46,7 @@ class KeyBoard extends StatelessWidget {
               cb: cb,
             ),
             Buttom.operation(
-              text: 'x',
+              text: '*',
               cb: cb,
             ),
           ]),
