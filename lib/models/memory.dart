@@ -21,7 +21,17 @@ class Memory {
   }
 
   _addDigit(String digit) {
-    _value += digit;
+    final isDot = digit == '.';
+
+    final wipeValue = (_value == '0' && !isDot) || _wipeValue;
+
+    if (isDot && _value.contains('.')) {
+      return;
+    }
+
+    final currentValue = wipeValue ? '' : _value;
+    _value = currentValue + digit;
+    _wipeValue = false;
   }
 
   _allClear() {
