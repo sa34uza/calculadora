@@ -6,24 +6,49 @@ class Memory {
   String _operation;
   String _value = '0';
   bool _wipeValue = false;
+  String _lastCommand;
 
   void applyCommand(String command) {
+    if (_isReplacingOperation(command)) {
+      _operation = command;
+      return;
+    }
     if (command == 'AC') {
       _allClear();
     } else if (operations.contains(command)) {
       _setOperation(command);
     } else
       _addDigit(command);
+
+    _lastCommand = command;
+  }
+
+  _isReplacingOperation(String command) {
+    return operations.contains(_lastCommand) &&
+        operations.contains(command) &&
+        _lastCommand != "=" &&
+        command != '=';
   }
 
   _setOperation(String newOperations) {
+    bool isEqualSign = newOperations == '=';
     if (_bufferIndex == 0) {
-      _operation = newOperations;
-      _bufferIndex = 1;
+      if (!isEqualSign) {
+        _operation = newOperations;
+        _bufferIndex = 1;
+        _wipeValue = true;
+      }
     } else {
       _buffer[0] = _calculate();
+      _buffer[1] = 0.0;
+      _value = _buffer[0].toString();
+      _value = _value.endsWith('.0') ? _value.split('.') : _value;
+
+      _operation = isEqualSign ? null : newOperations;
+      _bufferIndex = isEqualSign ? 0 : 1;
     }
-    _wipeValue = true;
+
+    _wipeValue = true; //!isEqualSign
   }
 
   _addDigit(String digit) {
@@ -45,6 +70,10 @@ class Memory {
 
   _allClear() {
     _value = '0';
+    _buffer.setAll(0, [0.0, 0.0]);
+    _bufferIndex = 0;
+    _operation = null;
+    _wipeValue = false;
   }
 
   String get value {
