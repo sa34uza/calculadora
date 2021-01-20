@@ -42,7 +42,7 @@ class Memory {
       _buffer[0] = _calculate();
       _buffer[1] = 0.0;
       _value = _buffer[0].toString();
-      _value = _value.endsWith('.0') ? _value.split('.') : _value;
+      _value = _value.endsWith('.0') ? _value.split('.')[0] : _value;
 
       _operation = isEqualSign ? null : newOperations;
       _bufferIndex = isEqualSign ? 0 : 1;
